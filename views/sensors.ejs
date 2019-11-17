@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sistema IoT de medições</title>
+    <%- include('imports'); -%>
+  </head>
+  <body>
+    <%- include('navbar'); -%>
+    
+    <div class="container">
+      <% sensors.forEach((sensor) => { %>
+        <div class="sensor">
+          <h2 class="sensor-name">
+            <%= sensor.id %> - <%= sensor.name %>
+          </h2>
+          <br>
+          <% if (sensor.measurements.length > 0) { %>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Temperatura</th>
+                <th>Umidade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% sensor.measurements.forEach((measurement) => { %>
+                <tr>
+                  <td><%= measurement.date %></td>
+                  <td><%= measurement.temperature %></td>
+                  <td><%= measurement.humidity %></td>
+                </tr>
+              <% }); %>
+            </tbody>
+          </table>
+          <% } else { %>
+            Nenhum valor existente para esse sensor
+          <% } %>
+        </div>
+      <% }); %>
+    </div>
+
+  </body>
+</html>
