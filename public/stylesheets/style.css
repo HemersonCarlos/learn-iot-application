@@ -1,0 +1,26 @@
+.card-body{
+
+    width: 300px;
+    left: 300px;
+    
+}
+
+.row{
+margin: 3%;
+
+}
+
+.container{
+
+    margin: 3%;
+    
+}
+
+.card-body{
+ 
+    background-color: #3E60C1;
+}
+
+.fundo{
+    background-color: #2E4583;
+}
