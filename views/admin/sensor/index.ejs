@@ -7,8 +7,36 @@
 </head>
 <body>
     <%- include('../../navbar'); -%>
-
-    <h1>Em andamento...</h1>
+          
+        <div class = "container">
+            <div class="row">
+                <h1>Sensor Administration</h1>
+            </div>
     
+            <div class="row mb-2">
+                <a href="#" class="btn btn-dark btn-outline-info" > New Sensor </a>
+            </div>
+        
+            <div class = "row">
+                <table class="table table-hover ">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th scope="col">Code</th>
+                        <th scope="col">Title</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody class="table-active" >
+                        <% sensor.forEach((sensores) => { %>
+                            <tr>
+                                <td> <%= sensores.id %></td>
+                                <td> <%= sensores.name %> </td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                   
+                </table>
+            </div>
+        </div>
 </body>
 </html>

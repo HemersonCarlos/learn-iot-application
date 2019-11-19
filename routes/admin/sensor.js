@@ -4,7 +4,13 @@ var devicesService = require('../../services/devicesService');
 
 router.get('/', function(req, res, next) {
 
-    res.render('admin/sensor/index');
+    var sensor = devicesService.getSensors();
+
+    var data = {
+        sensor: sensor
+    }
+
+    res.render('admin/sensor/index', data);
 
 });
 
