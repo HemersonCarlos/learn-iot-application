@@ -37,6 +37,15 @@ var getActuators = function() {
   return actuators;
 }
 
+var updateActuatorStatus = function(actuatorId) {
+  var actuators = loadFileActuators();
+  var selectedActuator = actuators.find((actuator) => actuator.id == actuatorId);
+  
+  actuator.status = actuator.status == 1 ? 0 : 1;
+
+  saveFileActuators(actuators);
+}
+
 var addMeasurement = function(sensorId, temperature, humidity) {
   var sensors = loadFileTemperatureSensors();
 
@@ -56,5 +65,6 @@ var addMeasurement = function(sensorId, temperature, humidity) {
 module.exports = {
   getSensors: getSensors,
   getActuators: getActuators,
-  addMeasurement: addMeasurement
+  addMeasurement: addMeasurement,
+  updateActuatorStatus: updateActuatorStatus
 }

@@ -24,7 +24,11 @@
         <div class="card text-center">
             <div class="card-body">
               <h5 class="card-title">Luz da sala</h5>
-              <a href="#" class="btn btn-primary">Ligar</a>
+                <form action="/actuators/id" method="post">
+                  <button class="btn btn-primary" type="submit">Ligar</button>
+                  <input type="hidden" name="id" value="1">
+                  <input type="hidden" name="status" value="0">
+                </form>
             </div>
           </div>
 
