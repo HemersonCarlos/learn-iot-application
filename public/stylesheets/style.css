@@ -23,4 +23,17 @@ margin: 3%;
 
 .fundo{
     background-color: #2E4583;
+    color: #ffd700;
+    
+}
+
+.table{
+    color: #ffd700;
+    margin-left: 25%;
+}
+
+.sensor-name{
+    color: #ffd700;
+    margin-left: 50%;
+
 }
