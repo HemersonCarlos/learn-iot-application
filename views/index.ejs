@@ -12,52 +12,37 @@
 
     <div class="container">
       <div class="row">
- 
+        <% sensors.forEach((sensor) => { %>
         <div class="card text-center">
           <div class="card-body">
-            <h5 class="card-title">Sensor da Churrasqueira</h5>
-            <p class="card-text">Temperatura: 34°C</p>
-            <p class="card-text">Umidade: 80%</p>
+            <h5 class="card-title"><%= sensor.name %></h5>
+            <% if (sensor.measurements.length > 0) { %>
+            <% var index = sensor.measurements.length -1 %>
+            <p class="card-text">Temperatura: <%= sensor.measurements[index].temperature %></p>
+            <p class="card-text">Umidade: <%= sensor.measurements[index].humidity %></p>
+            <% } %>
           </div>
         </div>
-
+        <% }); %>
+      </div>
+      <div class="row">
+        <% actuators.forEach((actuator) => { %>
         <div class="card text-center">
             <div class="card-body">
-              <h5 class="card-title">Luz da sala</h5>
-                <form action="/actuators/id" method="post">
+              <h5 class="card-title"><%= actuator.name %></h5>
+                <form action="/actuators/<%= actuator.id %>" method="post">
+                  <input type="hidden" name="status" value="<%= actuator.status %>">
+                  <% if ( actuator.status == 0 ) { %>
                   <button class="btn btn-primary" type="submit">Ligar</button>
-                  <input type="hidden" name="id" value="1">
-                  <input type="hidden" name="status" value="0">
+                  <% } else { %>
+                  <button class="btn btn-primary" type="submit">Desigar</button>
+                  <% } %>
                 </form>
             </div>
           </div>
-
         </div>
-      </div>
-
-          <div class="container">
-              <div class="row">
-
-
-        <div class="card text-center">
-            <div class="card-body">
-              <h5 class="card-title">Sensor da Sala</h5>
-              <p class="card-text">Temperatura: 24°C</p>
-              <p class="card-text">Umidade: 60%</p>
-          </div>
-        </div>
-
-        <div class="card text-center">
-            <div class="card-body">
-              <h5 class="card-title">Luz da garagem</h5>
-              <a href="#" class="btn btn-primary">Ligar</a>
-            </div>
-          </div>
-
-
-
+        <% }); %>
       </div>
     </div>
-    
   </body>
 </html>

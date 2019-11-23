@@ -6,8 +6,9 @@ var devicesService = require('../services/devicesService');
 router.get('/', function(req, res, next) {
 
   var sensors = devicesService.getSensors();
+  var actuators = devicesService.getActuators();
 
-  res.render('index', { title: 'Plataforma IoT', sensors: sensors } );
+  res.render('index', { title: 'Plataforma IoT', sensors: sensors, actuators: actuators } );
 });
 
 module.exports = router;

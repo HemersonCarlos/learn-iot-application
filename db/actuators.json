@@ -2,11 +2,11 @@
     {
       "id": 1,
       "name": "Luz da sala",
-      "status": 1
+      "status": 0
     },
     {
       "id": 2,
       "name": "Luz do quarto",
-      "status": 1
+      "status": 0
     }
 ]
