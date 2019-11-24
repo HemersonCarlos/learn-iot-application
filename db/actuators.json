@@ -1,12 +1,12 @@
 [
-    {
-      "id": 1,
-      "name": "Luz da sala",
-      "status": 0
-    },
-    {
-      "id": 2,
-      "name": "Luz do quarto",
-      "status": 0
-    }
+  {
+    "id": 1,
+    "name": "Luz da sala",
+    "status": 0
+  },
+  {
+    "id": 2,
+    "name": "Luz do quarto",
+    "status": 0
+  }
 ]

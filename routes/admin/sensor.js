@@ -14,4 +14,25 @@ router.get('/', function(req, res, next) {
 
 });
 
+router.get('/create', function(req, res, next) { 
+
+    res.render('admin/sensor/create');
+
+});
+
+router.post('/create', function(req, res, next) {
+
+    var sensor = devicesService.getSensors();
+    var newId =  sensor.length + 1;
+
+    var newSensor = {};
+    newSensor.id = newId;
+    newSensor.name = req.body.theSensorName;
+
+    devicesService.saveNewSensors(newSensor);
+
+    res.redirect('/admin/sensor');
+
+});
+
 module.exports = router;

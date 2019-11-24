@@ -16,7 +16,6 @@ router.post('/:id', function(req, res, next) {
 
   devicesService.updateActuatorStatus(actuatorId);
 
-  //redirect
   res.redirect('/');
 });
 

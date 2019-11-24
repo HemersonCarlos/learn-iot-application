@@ -17,6 +17,20 @@ var loadFileActuators = function() {
   return actuators;
 }
 
+var saveNewSensors = function(newSensor) {
+
+  var sensor = loadFileTemperatureSensors();
+  sensor.push(newSensor);
+  saveFileTemperatureSensors(sensor);
+}
+
+var saveNewActuator = function(newActuator) {
+
+  var actuator = loadFileActuators();
+  actuator.push(newActuator);
+  saveFileActuators(actuator);
+}
+
 var saveFileActuators = function(actuators) {
   var data = JSON.stringify(actuators);
   fs.writeFileSync(actuatorsFilePath, data, 'utf8');
@@ -66,5 +80,7 @@ module.exports = {
   getSensors: getSensors,
   getActuators: getActuators,
   addMeasurement: addMeasurement,
-  updateActuatorStatus: updateActuatorStatus
+  updateActuatorStatus: updateActuatorStatus,
+  saveNewSensors: saveNewSensors,
+  saveNewActuator: saveNewActuator
 }

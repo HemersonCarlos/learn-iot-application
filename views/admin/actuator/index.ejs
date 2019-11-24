@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">    
-    <title>Sensor administration</title>
+    <title>Actuator administration</title>
     <%- include('../../imports'); -%>
 </head>
 <body>
@@ -10,11 +10,11 @@
           
         <div class = "container">
             <div class="row">
-                <h1>Sensor Administration</h1>
+                <h1>Actuator Administration</h1>
             </div>
     
             <div class="row mb-2">
-                <a href="/admin/sensor/create" class="btn btn-dark btn-outline-info" > New Sensor </a>
+                <a href="/admin/actuator/create" class="btn btn-dark btn-outline-info" > New Actuator </a>
             </div>
         
             <div class = "row">
@@ -27,10 +27,10 @@
                     </thead>
                     
                     <tbody class="table-active" >
-                        <% sensor.forEach((sensores) => { %>
+                        <% actuator.forEach((actuator) => { %>
                             <tr>
-                                <td> <%= sensores.id %></td>
-                                <td> <%= sensores.name %> </td>
+                                <td> <%= actuator.id %></td>
+                                <td> <%= actuator.name %> </td>
                             </tr>
                         <% }); %>
                     </tbody>
@@ -40,3 +40,4 @@
         </div>
 </body>
 </html>
+

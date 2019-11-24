@@ -3,7 +3,6 @@
         "id": 1,
         "name": "Temperatura e Umidade da Sala",
         "measurements": [
-            {},
             {
                 "date": "2019-11-19 20:36:13",
                 "temperature": "25.90",
@@ -45,5 +44,9 @@
                 "humidity": "64.20"
             }
         ]
+    },
+    {
+        "id": 2,
+        "name": "Sensor Cozinha"
     }
 ]
