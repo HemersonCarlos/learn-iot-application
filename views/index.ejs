@@ -4,14 +4,12 @@
     <title><%= title %></title>
    
     <%- include('imports'); -%>
-
+    <%- include('navbar'); -%>
   </head>
   <body class="fundo">
 
-    <%- include('navbar'); -%>
-
-    <div class="container">
-      <div class="row">
+      <div class="cardall">
+      <div class="card w-50">
         <% sensors.forEach((sensor) => { %>
         <div class="card text-center">
           <div class="card-body">
@@ -25,20 +23,36 @@
         </div>
         <% }); %>
       </div>
-      <div class="row">
-        <% actuators.forEach((actuator) => { %>
-        <div class="card text-center">
-            <div class="card-body">
-              <h5 class="card-title"><%= actuator.name %></h5>
-                <form action="#########<%= actuator.id %>" method="POST">
-                  <button type="submit" id=<%= actuator.status ? "actuatorStatus" : "actuatorStatusDisabled" %>>
-                    <%= actuator.status ? 'Ligado' : 'Desligado' %>
-                  </button>
+    </div>
+
+          <div class="cardall">
+          <div class="card w-50">
+          <div class="table-active" > 
+          <% actuators.forEach((actuator) => { %>
+          <div class="card text-center">
+          <div class="card-body">
+            <tr>
+                <td> <%= actuator.id %></td>
+                <td> <%= actuator.name %> </td>
+                
+                <td>
+                <form action="/admin/actuator/<%= actuator.id %>" method="POST">
+
+                    <button type="submit" id=<%= actuator.status ? "actuatorStatus" : "actuatorStatusDisabled" %>>
+                        <%= actuator.status ? 'Ligado' : 'Desligado' %>
+                    </button>
+
                 </form>
-            </div>
+                </td>
+
+            </tr>
           </div>
-        <% }); %>
-      </div>
-      </div>
+          </div>
+          </div>
+          <% }); %>
+          </div>
+        </div>
+
+
   </body>
 </html>

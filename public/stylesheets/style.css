@@ -1,24 +1,27 @@
 .card-body{
 
-    width: 300px;
-    left: 300px;
+    
+   width: 150%;
+
+    
     
 }
 
 .row{
-margin: 3%;
+
 
 }
 
 .container{
 
-    margin: 3%;
+    
     
 }
 
 .card-body{
- 
+    width: 100%;
     background-color: #3E60C1;
+    
 }
 
 .fundo{
@@ -28,12 +31,17 @@ margin: 3%;
 }
 
 .table{
-    color: #ffd700;
-    margin-left: 25%;
+    
 }
 
 .sensor-name{
-    color: #ffd700;
-    margin-left: 50%;
+    
+    
 
+}
+
+.cardall{
+
+    margin: 5%;
+    padding-left: 25%;
 }

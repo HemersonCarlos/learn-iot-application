@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
     var data = {
         actuator: actuator
     }
-
+   
     res.render('admin/actuator/index', data);
 
 });
