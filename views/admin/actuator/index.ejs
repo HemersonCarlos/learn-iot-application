@@ -5,49 +5,52 @@
     <title>Actuator administration</title>
     <%- include('../../imports'); -%>
 </head>
-<body>
+<body class="fundo">
     <%- include('../../navbar'); -%>
           
         <div class = "container">
             <div class="row">
-                <h1>Actuator Administration</h1>
+                <h1>Administração de Atuadores</h1>
             </div>
     
             <div class="row mb-2">
-                <a href="/admin/actuator/create" class="btn btn-dark btn-outline-info" > New Actuator </a>
+                <a href="/admin/actuator/create" class="btn btn-dark btn-outline-info" > Novo Atuador </a>
             </div>
-        
+            
+            <div class="dourado">
             <div class = "row">
                 <table class="table table-hover ">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">Code</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Status</th>
-                        </tr>
-                    </thead>             
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Code</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+            </div>             
                     
-                    <tbody class="table-active" >
-                        <% actuator.forEach((actuator) => { %>
-                            <tr>
-                                <td> <%= actuator.id %></td>
-                                <td> <%= actuator.name %> </td>
-                                
-                                <td>
-                                    <form action="/admin/actuator/<%= actuator.id %>" method="POST">
-                                        <button type="submit" id=<%= actuator.status ? "actuatorStatus" : "actuatorStatusDisabled" %>>
-                                            <%= actuator.status ? 'Ligado' : 'Desligado' %>
-                                        </button>
-                                    </form>
-                                </td>
-                            
-                            </tr>
-                        <% }); %>
-                    </tbody>
-                   
-                </table>
-            </div>
+        <tbody class="table-active" >
+            <% actuator.forEach((actuator) => { %>
+            <tr>
+                <td> <%= actuator.id %></td>
+                <td> <%= actuator.name %> </td>
+                    
+            <td>
+            <form action="/admin/actuator/<%= actuator.id %>" method="POST">
+                <button type="submit" class="btn btn-dark btn-outline-info" id=<%= actuator.status ? "actuatorStatus" : "actuatorStatusDisabled" %>>
+                <%= actuator.status ? 'Ligado' : 'Desligado' %>
+                </button>
+            </form>
+            </td>
+
+                
+            </tr>
+                <% }); %>
+        </tbody>
+
+        </table>
         </div>
+</div>
 </body>
 </html>
 

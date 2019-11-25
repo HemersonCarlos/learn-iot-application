@@ -5,16 +5,16 @@
     <title>Sensor administration</title>
     <%- include('../../imports'); -%>
 </head>
-<body>
+<body class="fundo">
     <%- include('../../navbar'); -%>
           
         <div class = "container">
             <div class="row">
-                <h1>Sensor Administration</h1>
+                <h1>Administração de Sensor</h1>
             </div>
     
             <div class="row mb-2">
-                <a href="/admin/sensor/create" class="btn btn-dark btn-outline-info" > New Sensor </a>
+                <a href="/admin/sensor/create" class="btn btn-dark btn-outline-info" > Novo Sensor </a>
             </div>
         
             <div class = "row">
@@ -22,10 +22,10 @@
                     <thead class="thead-dark">
                         <tr>
                         <th scope="col">Code</th>
-                        <th scope="col">Title</th>
+                        <th scope="col">Nome</th>
                         <th scope="col">Data</th>
-                        <th scope="col">Temperature</th>
-                        <th scope="col">Humidity</th>
+                        <th scope="col">Temperatura</th>
+                        <th scope="col">Humidade</th>
                         </tr>
                     </thead>
                     
