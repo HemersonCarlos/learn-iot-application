@@ -23,14 +23,20 @@
                         <tr>
                         <th scope="col">Code</th>
                         <th scope="col">Title</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Temperature</th>
+                        <th scope="col">Humidity</th>
                         </tr>
                     </thead>
                     
                     <tbody class="table-active" >
                         <% sensor.forEach((sensores) => { %>
                             <tr>
-                                <td> <%= sensores.id %></td>
-                                <td> <%= sensores.name %> </td>
+                                <td><%= sensores.id %></td>
+                                <td><%= sensores.name %></td>
+                                <td><%= sensores.measurements.length > 0 ? sensores.measurements[sensores.measurements.length - 1].date.split(",")[0] : 'No values' %></td>
+                                <td><%= sensores.measurements.length > 0 ? sensores.measurements[sensores.measurements.length - 1].temperature : 'No values' %></td>
+                                <td><%= sensores.measurements.length > 0 ? sensores.measurements[sensores.measurements.length - 1].humidity : 'No values' %></td>
                             </tr>
                         <% }); %>
                     </tbody>

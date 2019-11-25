@@ -24,12 +24,27 @@ router.post('/create', function(req, res, next) {
 
     var actuator = devicesService.getActuators()
     var newId =  actuator.length + 1;
-
     var newActuator = {};
+
     newActuator.id = newId;
     newActuator.name = req.body.theActuatorName;
+    newActuator.status = req.body.actuatorStatus == "on" ? 1 : 0;
 
     devicesService.saveNewActuator(newActuator);
+
+    res.redirect('/admin/actuator');
+
+});
+
+router.post('/:id', function(req, res, next) {
+
+    var actuators = devicesService.getActuators();
+    var id = req.params.id;
+    var actuator = actuators.find(actuator => actuator.id == id);
+
+    actuator.status = actuator.status ? 0 : 1;
+
+    devicesService.saveFileActuators(actuators);
 
     res.redirect('/admin/actuator');
 

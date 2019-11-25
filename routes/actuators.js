@@ -11,12 +11,4 @@ router.get('/:id', function(req, res, next) {
   res.json(actuator);
 });
 
-router.post('/:id', function(req, res, next) {
-  var actuatorId = req.params.id;
-
-  devicesService.updateActuatorStatus(actuatorId);
-
-  res.redirect('/');
-});
-
 module.exports = router;

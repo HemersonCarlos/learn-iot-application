@@ -21,8 +21,9 @@
                 <table class="table table-hover ">
                     <thead class="thead-dark">
                         <tr>
-                        <th scope="col">Code</th>
-                        <th scope="col">Title</th>
+                            <th scope="col">Code</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Status</th>
                         </tr>
                     </thead>
                     
@@ -31,6 +32,15 @@
                             <tr>
                                 <td> <%= actuator.id %></td>
                                 <td> <%= actuator.name %> </td>
+                                
+                                <td>
+                                    <form action="/admin/actuator/<%= actuator.id %>" method="POST">
+                                        <button type="submit" id=<%= actuator.status ? "actuatorStatus" : "actuatorStatusDisabled" %>>
+                                            <%= actuator.status ? 'Ligado' : 'Desligado' %>
+                                        </button>
+                                    </form>
+                                </td>
+                            
                             </tr>
                         <% }); %>
                     </tbody>

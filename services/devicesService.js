@@ -1,5 +1,4 @@
 var fs = require('fs');
-
 var temperatureSensorsFilePath = 'db/temp_sensors.json';
 var actuatorsFilePath = 'db/actuators.json';
 
@@ -15,20 +14,6 @@ var loadFileActuators = function() {
   var actuators = JSON.parse(fileData);
 
   return actuators;
-}
-
-var saveNewSensors = function(newSensor) {
-
-  var sensor = loadFileTemperatureSensors();
-  sensor.push(newSensor);
-  saveFileTemperatureSensors(sensor);
-}
-
-var saveNewActuator = function(newActuator) {
-
-  var actuator = loadFileActuators();
-  actuator.push(newActuator);
-  saveFileActuators(actuator);
 }
 
 var saveFileActuators = function(actuators) {
@@ -51,13 +36,16 @@ var getActuators = function() {
   return actuators;
 }
 
-var updateActuatorStatus = function(actuatorId) {
-  var actuators = loadFileActuators();
-  var selectedActuator = actuators.find((actuator) => actuator.id == actuatorId);
-  
-  actuator.status = actuator.status == 1 ? 0 : 1;
+var saveNewSensors = function(newSensor) {
+  var sensor = loadFileTemperatureSensors();
+  sensor.push(newSensor);
+  saveFileTemperatureSensors(sensor);
+}
 
-  saveFileActuators(actuators);
+var saveNewActuator = function(newActuator) {
+  var actuator = loadFileActuators();
+  actuator.push(newActuator);
+  saveFileActuators(actuator);
 }
 
 var addMeasurement = function(sensorId, temperature, humidity) {
@@ -66,9 +54,9 @@ var addMeasurement = function(sensorId, temperature, humidity) {
   var selectedSensor = sensors.find((sensor) => sensor.id == sensorId);
 
   var measurementData = {
-    "date": new Date().toLocaleString(),
-    "temperature": temperature,
-    "humidity": humidity,
+    date: new Date().toLocaleString(),
+    temperature: temperature,
+    humidity: humidity
   };
 
   selectedSensor.measurements.push(measurementData);
@@ -80,7 +68,7 @@ module.exports = {
   getSensors: getSensors,
   getActuators: getActuators,
   addMeasurement: addMeasurement,
-  updateActuatorStatus: updateActuatorStatus,
   saveNewSensors: saveNewSensors,
-  saveNewActuator: saveNewActuator
+  saveNewActuator: saveNewActuator,
+  saveFileActuators: saveFileActuators,
 }

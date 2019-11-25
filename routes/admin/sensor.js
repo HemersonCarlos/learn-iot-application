@@ -28,6 +28,7 @@ router.post('/create', function(req, res, next) {
     var newSensor = {};
     newSensor.id = newId;
     newSensor.name = req.body.theSensorName;
+    newSensor.measurements = [];
 
     devicesService.saveNewSensors(newSensor);
 

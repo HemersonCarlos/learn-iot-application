@@ -30,19 +30,15 @@
         <div class="card text-center">
             <div class="card-body">
               <h5 class="card-title"><%= actuator.name %></h5>
-                <form action="/actuators/<%= actuator.id %>" method="post">
-                  <input type="hidden" name="status" value="<%= actuator.status %>">
-                  <% if ( actuator.status == 0 ) { %>
-                  <button class="btn btn-primary" type="submit">Ligar</button>
-                  <% } else { %>
-                  <button class="btn btn-primary" type="submit">Desigar</button>
-                  <% } %>
+                <form action="#########<%= actuator.id %>" method="POST">
+                  <button type="submit" id=<%= actuator.status ? "actuatorStatus" : "actuatorStatusDisabled" %>>
+                    <%= actuator.status ? 'Ligado' : 'Desligado' %>
+                  </button>
                 </form>
             </div>
           </div>
-        </div>
         <% }); %>
       </div>
-    </div>
+      </div>
   </body>
 </html>
