@@ -36,7 +36,7 @@
                 <td> <%= actuator.name %> </td>
                 
                 <td>
-                <form action="/admin/actuator/<%= actuator.id %>" method="POST">
+                <form action="<%= actuator.id %>" method="POST">
 
                     <div class="botao">
                     <button type="submit" class="btn btn-dark btn-outline-info" id=<%= actuator.status ? "actuatorStatus" : "actuatorStatusDisabled" %>>
